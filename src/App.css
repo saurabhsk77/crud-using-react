@@ -13,3 +13,24 @@ td {
 button {
   margin: 10px;
 }
+
+.searchBox {
+  border: 2px solid red;
+  margin: 10px;
+  float: right;
+  padding: 8px;
+  border-radius: 18px;
+  outline: none;
+}
+
+.formElement {
+  margin-left: 30px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+.btns {
+  display: flex;
+  justify-content: center;
+}

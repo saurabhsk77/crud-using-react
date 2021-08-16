@@ -31,7 +31,7 @@ const EditUser = () => {
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    const time = new Date().getDate();
+    const time = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
     setUser({ ...user, [name]: value, lastupdated: `${time}` });
   };
 

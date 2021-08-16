@@ -27,8 +27,7 @@ const Home = () => {
   return (
     <>
       <Table />
-      <br />
-      <h2>editable table</h2>
+
       {/* <form>
         <table>
           <thead>

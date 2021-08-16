@@ -1,3 +1,4 @@
+import "../../App.css";
 const BaseInput = ({ label, type, name, value, onChange, isrequired }) => {
   return (
     <div>
@@ -8,6 +9,7 @@ const BaseInput = ({ label, type, name, value, onChange, isrequired }) => {
         value={value}
         onChange={onChange}
         required={isrequired}
+        className="formElement"
       />
     </div>
   );

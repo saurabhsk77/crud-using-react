@@ -1,9 +1,9 @@
 import React, { useState, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
-import Context from "../context/GlobalState";
+import { GlobalContext } from "../context/GlobalState";
 import BaseInput from "../common/BaseInput";
 const Create = () => {
-  const { createUser } = useContext(Context.GlobalContext);
+  const { createUser } = useContext(GlobalContext);
   const [user, setUser] = useState({
     username: "",
     dob: "",
@@ -39,13 +39,16 @@ const Create = () => {
   const handleChange = (e) => {
     const name = e.target.name;
     let value = e.target.value;
-    const str = new Date();
+    const str = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`;
     setUser({
       ...user,
       [name]: value,
       id: new Date().getTime().toString(),
       lastupdated: `${str}`,
     });
+  };
+  const handleCancelClick = () => {
+    history.push("/");
   };
 
   return (
@@ -69,6 +72,7 @@ const Create = () => {
             value={user.dob}
             onChange={handleChange}
             isrequired
+            className="formElement"
           />
         </div>
         <br />
@@ -79,6 +83,7 @@ const Create = () => {
             name="gender"
             value="male"
             onChange={handleChange}
+            className="formElement"
           />
           <label htmlFor="male">male</label>
           <input
@@ -86,6 +91,7 @@ const Create = () => {
             name="gender"
             value="female"
             onChange={handleChange}
+            className="formElement"
           />
           <label htmlFor="female">female</label>
         </div>
@@ -97,6 +103,7 @@ const Create = () => {
             id="maritalstatus"
             value={user.maritalStatus}
             onChange={handleChange}
+            className="formElement"
           >
             <option value="prefer not to disclose">
               prefer not to disclose
@@ -114,6 +121,7 @@ const Create = () => {
             id="country"
             value={user.country}
             onChange={handleChange}
+            className="formElement"
           >
             <option value="India">India</option>
             <option value="usa">usa</option>
@@ -129,6 +137,7 @@ const Create = () => {
             name="startdate"
             value={user.startdate}
             onChange={handleChange}
+            className="formElement"
           />
           <br />
           <label htmlFor="enddate">end date :</label>
@@ -137,19 +146,23 @@ const Create = () => {
             name="enddate"
             value={user.enddate}
             onChange={handleChange}
+            className="formElement"
           />
         </div>
         <br />
-
-        {user.username.length > 2 && user.startdate && user.enddate ? (
-          <button className="btn-primary">Save User</button>
-        ) : (
-          <button disabled>Save User</button>
-        )}
+        <div className="btns">
+          {user.username.length > 2 && user.startdate && user.enddate ? (
+            <button className="btn-primary">Save User</button>
+          ) : (
+            <button disabled>Save User</button>
+          )}
+        </div>
       </form>
-      <Link to="/">
-        <button className="btn btn-secondary">cancel</button>
-      </Link>
+      {/* <Link to="/"> */}
+      <button className="btn btn-secondary" onClick={handleCancelClick}>
+        cancel
+      </button>
+      {/* </Link> */}
     </div>
   );
 };

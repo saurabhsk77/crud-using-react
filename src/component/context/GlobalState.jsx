@@ -36,7 +36,7 @@ export const GlobalProvider = ({ children }) => {
   );
 };
 
-export default {
-  GlobalContext,
-  GlobalProvider,
-};
+// export default {
+//   GlobalContext,
+//   GlobalProvider,
+// };
