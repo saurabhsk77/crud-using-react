@@ -64,7 +64,9 @@ const Create = () => {
         />
         <br />
         <div>
-          <label htmlFor="dob">DOB : </label>
+          <label htmlFor="dob" aria-labelledby="dob">
+            DOB :{" "}
+          </label>
           <input
             type="date"
             name="dob"
@@ -158,11 +160,10 @@ const Create = () => {
           )}
         </div>
       </form>
-      {/* <Link to="/"> */}
+
       <button className="btn btn-secondary" onClick={handleCancelClick}>
         cancel
       </button>
-      {/* </Link> */}
     </div>
   );
 };

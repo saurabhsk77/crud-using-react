@@ -3,6 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import BaseInput from "./component/common/BaseInput";
 import Navbar from "./component/page/Navbar";
 import Create from "./component/users/Create";
+import Table from "./component/common/Table";
 test("render header component", () => {
   const { getByText } = render(
     <BrowserRouter>
@@ -48,4 +49,10 @@ test("calls onClick prop when clicked", () => {
   render(<Button onClick={handleClick}>Click Me</Button>);
   fireEvent.click(screen.getByText(/click me/i));
   expect(handleClick).toHaveBeenCalledTimes(1);
+});
+
+test("should show form", () => {
+  render(<Create />);
+  const input = screen.getByText(/username/i);
+  expect(input).toBeInTheDocument();
 });

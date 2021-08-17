@@ -9,10 +9,15 @@ const Table = () => {
   const handleDeleteUser = (user) => {
     if (window.confirm("are you sure to delete the user?")) {
       removeUser(user);
+      setSearchFilter(users.filter((u) => u.id !== user.id));
     } else {
       alert("oooppsss!!");
     }
   };
+  /**
+   *
+   * @param {event} handle search
+   */
   const handleSearch = (e) => {
     const userFilter = e.target.value;
     const userData = users.filter((user) => {
@@ -75,7 +80,7 @@ const Table = () => {
                 } = user;
                 return (
                   <>
-                    <tr>
+                    <tr key={id}>
                       <td>
                         <input value={id} disabled />
                       </td>

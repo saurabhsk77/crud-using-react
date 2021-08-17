@@ -17,7 +17,7 @@ const Reducer = (state, action) => {
       if (user.id === editedUser.id) {
         return editedUser;
       }
-      //   return user;
+      return user;
     });
     return {
       ...state,

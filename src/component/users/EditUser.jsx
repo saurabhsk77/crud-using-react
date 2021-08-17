@@ -40,7 +40,7 @@ const EditUser = () => {
     console.log(curUser);
     setUser(curUser);
     console.log(user);
-  }, []);
+  }, [id]);
   return (
     <div className="container mt-4">
       <form onSubmit={handleSubmit}>
@@ -121,7 +121,7 @@ const EditUser = () => {
         <br />
 
         {user.username.length > 2 && user.startdate && user.enddate ? (
-          <button className="btn-primary">Save User</button>
+          <button className="btn-primary">Update User</button>
         ) : (
           <button disabled>Save User</button>
         )}
